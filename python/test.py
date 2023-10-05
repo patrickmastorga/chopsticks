@@ -1,6 +1,6 @@
 import json, math
 
-with open('chopsticks.json', 'r') as f:
+with open('strength.json', 'r') as f:
     map = json.load(f)
 
 def legal_moves(position: tuple[int]) -> set[tuple[int]]:
@@ -31,11 +31,32 @@ def legal_moves(position: tuple[int]) -> set[tuple[int]]:
 
     return moves
 
-sum = 0
-count = 0
-for p11 in range(5):
-    for p12 in range(p11 + 1):
-        for p21 in range(1, 5):
-            for p22 in range(p21 + 1):
-                if math.isinf(map[p11][p12][p21][p22]) and map[p11][p12][p21][p22] > 0:
-                    print((p11, p12, p21, p22), (1, 0, 3, 0) in legal_moves((p11, p12, p21, p22)))
+MAX_BRANCH_DEPTH = 10
+
+def branch(position: tuple[int], turn: int, depth: int, visited: set[tuple[int]]) -> int:
+    """ Recursively calculates forced wins. Returns (p11, p12)'s outcome given the current position. 1 means win is forced, -1 means loss is inevitable """
+    global MAX_BRANCH_DEPTH
+    (p11, p12, p21, p22) = position
+
+    # we only need to search where the map isnt already filled in
+    if map[p11][p12][p21][p22] != None:
+        return map[p11][p12][p21][p22]
+
+    # dont search deeper than max depth
+    if depth > MAX_BRANCH_DEPTH:
+        return 0
+    
+    # if this player has already reached this exact position, game is a tie
+    if (p11, p12, p21, p22, turn) in visited:
+        return 0
+    visited.add((p11, p12, p21, p22, turn))
+
+    # recursive branching
+    outcomes = [-1 * branch(move, turn * -1, depth + 1, visited.copy()) for move in legal_moves(position)]
+    if len(outcomes) == 0:
+        print("SOMETHING IS WIERD")
+        print(position)
+        return 0
+
+    print(position, outcomes, legal_moves(position))
+    return max(outcomes)

@@ -1,0 +1,178 @@
+body {
+    justify-content: center;
+    background-color: #111;
+}
+
+.title {
+    text-align: center;
+    font-size: 5vh;
+}
+
+.top-button {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    padding: 10px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 4px 2px;
+}
+
+.top-button:hover {
+    background-color: black;
+}
+
+#title-left {
+    justify-content: center;
+}
+
+#title-right {
+    justify-content: center;
+
+}
+
+#middle {
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#win-text {
+    display: none;
+    font-size: 14vh;
+}
+
+#lose-text {
+    display: none;
+    font-size: 14vh;
+}
+
+.hand {
+    height: 100%;
+    max-height: min(38vh, 400px);
+    width: auto;
+    transition: 0.2s;
+    padding-left: 0px;
+}
+
+.hand:hover {
+    filter: brightness(0.5) !important;
+}
+
+#top-left {
+    position: relative;
+    float: right;
+    transform: rotate(180deg);
+}
+
+#top-right {
+    position: relative;
+    float: left;
+    transform: scaleY(-1);
+}
+
+#bottom-left {
+    transform: scaleX(-1);
+}
+
+
+#transfer-window {
+    text-align: center;
+    color: #fff;
+    display: none;
+}
+
+h2, h3 {
+    user-select: none;
+    font-size: 10px;
+}
+
+#transfer-window h3:hover {
+    color: #aaa;
+}
+
+.hand-indicator {
+    color: #aaa;
+    text-align: center;
+    display: block;
+    font-size: 2vh;
+}
+
+#left-indicator {
+    padding-right: min(10vh, 10vw);
+    opacity: 0;
+}
+
+#right-indicator {
+    padding-left: min(10vh, 10vw);
+    opacity: 0;
+}
+
+#turn-indicator {
+    text-align: center;
+    color: #aaa;
+    display: block;
+}
+
+
+@media (min-width: 576px) {
+    h2, h3 {
+        font-size: 28px;
+    }
+    .hand-indicator {
+        font-size: 22px;
+    }
+    .hand {
+        padding-left: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    h2, h3 {
+        font-size: 31px;
+    }
+    .hand-indicator {
+        font-size: 24px;
+    }
+    .hand {
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    h2, h3 {
+        font-size: 34px;
+    }
+    .hand-indicator {
+        font-size: 26px;
+    }
+    .hand {
+        padding-left: 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    h2, h3 {
+        font-size: 37px;
+    }
+    .hand-indicator {
+        font-size: 28px;
+    }
+    .hand {
+        padding-left: 40px;
+    }
+}
+
+@media (min-width: 1400px) {
+    h2, h3 {
+        font-size: 40px;
+    }
+    .hand-indicator {
+        font-size: 30px;
+    }
+    .hand {
+        padding-left: 50px;
+    }
+}
