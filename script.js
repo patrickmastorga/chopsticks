@@ -15,16 +15,20 @@ const rightIndicator = document.getElementById("right-indicator");
 const winText = document.getElementById("win-text");
 const loseText = document.getElementById("lose-text");
 
-let bottomLeftSelected;
-let bottomRightSelected;
+let bottomLeftSelected = false;
+let bottomRightSelected = false;
 let currentPosition;
 let buttonsEnabled;
 
 let computerStart = false;
 
 function init() {
-    bottomLeftSelected = false;
-    bottomRightSelected = false;
+    if (bottomLeftSelected) {
+        bottomLeftClick(true);
+    }
+    if (bottomRightSelected) {
+        bottomRightClick(true);
+    }
     currentPosition = [1, 1, 1, 1];
     buttonsEnabled = true;
 
