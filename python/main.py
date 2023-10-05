@@ -10,7 +10,7 @@ map = [
     [
         [
             [
-                (-MAX_CUTOFF if (p11, p12) == (0, 0) else None) for p22 in range(p21 + 1)
+                (-MAX_CUTOFF * 10 if (p11, p12) == (0, 0) else None) for p22 in range(p21 + 1)
             ] if p21 > 0 else None for p21 in range(5)
         ] for p12 in range(p11 + 1)
     ] for p11 in range(5)
@@ -71,7 +71,15 @@ def branch(position: tuple[int], turn: int, depth: int, visited: set[tuple[int]]
     # recursive branching
     outcomes = [-1 * branch(move, turn * -1, depth + 1, visited.copy()) for move in legal_moves(position)]
 
-    return max(outcomes)
+    best = max(outcomes)
+
+    # decrement the win value for every move away from victory
+    if abs(best) > MAX_CUTOFF:
+        if best > 0:
+            return best - 1
+        else:
+            return best + 1
+    return best
 
 print("CALCULATING FORCED WINS")
 # fill map with absolute wins and losses (forced victories)
@@ -88,6 +96,7 @@ for p11 in range(5):
         for p21 in range(1, 5):
             for p22 in range(p21 + 1):
                 map[p11][p12][p21][p22] = branch((p11, p12, p21, p22), 1, 0, set())
+                print((p11, p12, p21, p22), map[p11][p12][p21][p22])
 
 ###############################################################
 # Relative win potential

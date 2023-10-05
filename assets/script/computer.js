@@ -12,6 +12,9 @@ export function computerMove(position, difficulty=1.0) {
     let computerMoves = moves[c1][c2][h1][h2]
 
     for (let move of computerMoves) {
+        if (move.length > 4) {
+            continue;
+        }
         let [a, b, c, d] = move;
         move.push(strength[a][b][c][d]);
     }

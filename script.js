@@ -31,12 +31,12 @@ function init() {
     winText.style.display = "none";
     loseText.style.display = "none";
     
-    turnIndicator.style.display = 0;
+    turnIndicator.style.opacity = 0;
     if (computerStart) {
         playMove();
     }
     else {
-        turnIndicator.style.display = 1;
+        turnIndicator.style.opacity = 1;
         updateHands();
     }
 }
