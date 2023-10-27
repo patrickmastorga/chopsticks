@@ -51,7 +51,7 @@ body {
 
 .hand {
     height: 100%;
-    max-height: min(38vh, 400px);
+    max-height: min(36vh, 380px);
     width: auto;
     transition: 0.2s;
     padding-left: 0px;

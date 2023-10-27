@@ -8,6 +8,9 @@ import strength from './strength.json' assert { type: "json" };
  * @return {number[]} [e, f, g, h] where (e, f) is the human's new hands and (g, h) is the computer's new hands (both pairs in descending order)
  */
 export function computerMove(position, difficulty=1.0) {
+    console.log("--------------------------");
+    console.log("POSITION: ", position)
+    
     let [h1, h2, c1, c2] = position;
     let computerMoves = moves[c1][c2][h1][h2]
 
