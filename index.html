@@ -8,16 +8,19 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js" type="module"></script>
 </head>
 <body>
     <div class="container" style="max-height: 100vh">
         <div class="row d-flex justify-content-between" style="height: 8vh">
-            <div class="col-2" id="title-left"><button type="button" class="top-button" onclick="window.init()">Reset</button></div>
+            <div class="col-2" id="title-left"><button type="button" class="top-button">Reset</button></div>
             <h1 class="title col-8">CHOPSTICKS</h1>
-            <div class="col-2" id="title-right"><button type="button" class="top-button">Settings</button></div>
+            <div class="col-2" id="title-right"><!--button type="button" class="top-button">Settings</button--></div>
         </div>
         <div class="row g-0">
-            <div class="col-5"><img id="top-left" class="hand" onclick="window.topLeftClick()" src="assets/images/one_fingers.png" alt="ERR"></div>
+            <div class="col-5"><img id="top-left" class="hand" src="assets/images/one_fingers.png" alt="ERR"></div>
             <div class="col-2">
                 <!--div id="settings-window" class="container">
                     <div class="row d-flex justify-content-center">
@@ -41,36 +44,33 @@
                     <div class="row" onclick="window.hideTransferWindow()"><h3>cancel</h3></div>
                 </div-->
             </div>
-            <div class="col-5"><img id="top-right" class="hand" onclick="window.topRightClick()" src="assets/images/one_fingers.png" alt="ERR"></div>
+            <div class="col-5"><img id="top-right" class="hand" src="assets/images/one_fingers.png" alt="ERR"></div>
         </div>
         <div id="middle" class="row" style="height: 10vh"><h1 id="lose-text">YOU LOSE</h1><h1 id="win-text">YOU WIN</h1></div>
         <div class="row g-0">
             <div class="col-5 d-flex flex-column justify-content-between">
-                <img id="bottom-left" class="hand align-self-end" onclick="window.bottomLeftClick()" src="assets/images/one_fingers.png" alt="ERR">
+                <img id="bottom-left" class="hand align-self-end" src="assets/images/one_fingers.png" alt="ERR">
                 <h2 id="left-indicator" class="hand-indicator align-self-end">*selected*</h2>
             </div>
             <div class="col-2 d-flex flex-column justify-content-between">
                 <div id="transfer-window" class="container">
                     <div class="row"><h2>how many?</h2></div>
                     <div id="options" class="row g-0 d-flex justify-content-center">
-                        <div class="col-4 option" onclick="window.transfer(1)"><h3>1</h3></div>
-                        <div class="col-4 option" onclick="window.transfer(2)"><h3>2</h3></div>
-                        <div class="col-4 option" onclick="window.transfer(3)"><h3>3</h3></div>
-                        <div class="col-4 option" onclick="window.transfer(4)"><h3>4</h3></div>
+                        <div id="transfer-1" class="col-4 option"><h3>1</h3></div>
+                        <div id="transfer-2" class="col-4 option"><h3>2</h3></div>
+                        <div id="transfer-3" class="col-4 option"><h3>3</h3></div>
+                        <div id="transfer-4" class="col-4 option"><h3>4</h3></div>
                     </div>
-                    <div class="row" onclick="window.hideTransferWindow()"><h3>cancel</h3></div>
+                    <div id="hide-transfer-window" class="row"><h3>cancel</h3></div>
                 </div>
                 <div id="dummy"></div>
                 <div id="turn-indicator"><h2>your turn</h2></div>
             </div>
             <div class="col-5 d-flex flex-column justify-content-between">
-                <img id="bottom-right" class="hand align-self-start" onclick="window.bottomRightClick()" src="assets/images/one_fingers.png" alt="ERR">
+                <img id="bottom-right" class="hand align-self-start" src="assets/images/one_fingers.png" alt="ERR">
                 <h2 id="right-indicator" class="hand-indicator align-self-start">*selected*</h2>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="script.js" type="module"></script>
 </body>
 </html>

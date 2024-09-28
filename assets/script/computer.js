@@ -1,5 +1,36 @@
-import moves from './moves.json' assert { type: "json" };
-import strength from './strength.json' assert { type: "json" };
+let moves = [];
+
+fetch('./assets/script/moves.json')
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+    moves = data; // Store the fetched JSON data into the moves variable
+    console.log('Moves loaded:', moves); // Optional: Log the moves data to confirm
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+
+let strength = [];
+
+fetch('./assets/script/strength.json')
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+    strength = data; // Store the fetched JSON data into the moves variable
+    console.log('Strength loaded:', moves); // Optional: Log the moves data to confirm
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
 
 /**
  * Takes in an existing position and modifies it based on the computer's move

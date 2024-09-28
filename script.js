@@ -222,6 +222,23 @@ function transfer(amount) {
     playMove()
 }
 
+function transfer1()
+{
+    transfer(1);
+}
+function transfer2()
+{
+    transfer(1);
+}
+function transfer3()
+{
+    transfer(1);
+}
+function transfer4()
+{
+    transfer(1);
+}
+
 async function playMove() {
     updateHands();
 
@@ -291,11 +308,28 @@ function lose() {
     loseText.style.display = "block";
 }
 
+// Select the elements and add the event listeners
+topLeft.addEventListener('click', topLeftClick);
+topRight.addEventListener('click', topRightClick);
+bottomLeft.addEventListener('click', bottomLeftClick);
+bottomRight.addEventListener('click', bottomRightClick);
+
+const hide_transfer_window = document.getElementById('hide-transfer-window');
+hide_transfer_window.addEventListener('click', hideTransferWindow);
+
+const title_left = document.getElementById('title-left');
+title_left.addEventListener('click', init);
+
+const transfer_1 = document.getElementById('transfer-1');
+transfer_1.addEventListener('click', transfer1);
+const transfer_2 = document.getElementById('transfer-2');
+transfer_2.addEventListener('click', transfer2);
+const transfer_3 = document.getElementById('transfer-3');
+transfer_3.addEventListener('click', transfer3);
+const transfer_4 = document.getElementById('transfer-4');
+transfer_4.addEventListener('click', transfer4);
+
 // set functions as window attributes so they are accesible as html attribute
-window.topLeftClick = topLeftClick;
-window.topRightClick = topRightClick;
-window.bottomLeftClick = bottomLeftClick;
-window.bottomRightClick = bottomRightClick;
 window.hideTransferWindow = hideTransferWindow;
 window.transfer = transfer;
 window.init = init;
