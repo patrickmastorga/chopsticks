@@ -116,7 +116,7 @@ def update_win_sum(position: tuple[int], map: list[list[list[list[float]]]], old
     (p11, p12, p21, p22) = position
 
     win_sum = sum(-1 * old_map[p11][p12][p21][p22] for (p11, p12, p21, p22) in moves[p11][p12][p21][p22] if abs(old_map[p11][p12][p21][p22]) > MAX_CUTOFF)
-    geometric_sum = sum(-1 * old_map[p11][p12][p21][p22] for (p11, p12, p21, p22) in moves[p11][p12][p21][p22] if abs(old_map[p11][p12][p21][p22]) < MAX_CUTOFF)
+    geometric_sum = sum(-1 * old_map[p11][p12][p21][p22] for (p11, p12, p21, p22) in moves[p11][p12][p21][p22] if abs(old_map[p11][p12][p21][p22]) < -MAX_CUTOFF)
 
     map[p11][p12][p21][p22] = (win_sum / MAX_CUTOFF + geometric_sum * DECAY_RATE) / len(moves[p11][p12][p21][p22])
 
